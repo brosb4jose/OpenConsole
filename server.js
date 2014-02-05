@@ -82,7 +82,13 @@ console.log('Express app started on port ' + port);
 
 io.sockets.on('connection', function(socket) {
     console.log('socket connected!');
+
+    socket.on('test', function(data){
+        console.log(data);
+    })
 });
+
+
 
 // Initializing logger
 logger.init(app, passport, mongoose);
