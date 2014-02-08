@@ -1,19 +1,16 @@
 'use strict';
 
-angular.module('mean.system').controller('IndexController', ['$scope', '$socket', 'Global', function ($scope,$socket,Global) {
+angular.module('mean.system').controller('IndexController', ['$scope', '$socket', '$location', 'Global', function ($scope,$socket,$location,Global) {
     $scope.global = Global;
 
-    $socket.on('getID', function(data){
-    	console.log('Player name: ', data)
+ 	// Socket Responses
+    $socket.on('getRoom', function(data){
+    	$scope.global.room = data.room
+    	$location.path('/gR/' + data.room)
     })
 
-    $scope.connect = function() {
-    	console.log('tryna connect');
-    	console.log
-    	$socket.emit('test', {my: 'data'});
-    }
-
-    $scope.setName = function(){
-    	$socket.emit('setName', {name: 'Jose Contreras'})
+    // Socket Commands
+    $scope.startGameRoom = function(){
+    	$socket.emit('startRoom')
     }
 }]);

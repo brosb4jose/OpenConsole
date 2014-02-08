@@ -83,13 +83,8 @@ console.log('Express app started on port ' + port);
 io.sockets.on('connection', function(socket) {
     console.log('socket connected!');
 
-    socket.on('test', function(data){
-        console.log(data);
-
-    })
-
-    socket.on('setName', function(data){
-        console.log(data)
+    socket.on('register', function(data){
+        console.log('Player ' + data.name + ' is joining the GameRoom')
         // Save Name, create player, send ID from callback
         socket.emit('getID', data.name)
     })
