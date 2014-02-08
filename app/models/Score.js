@@ -21,12 +21,16 @@ var ScoreSchema = new Schema({
 	UserID: {
 		type: Number
 	},
-	Score: {[{gameType: String, statname: String, stat: Number}]}
+	Score: {
+		gameType: String, 
+		statname: String, 
+		stat: Number
+	}
 });
 
 /**
  * Validations
- */
+
 GameRoomSchema.path('Score').validate(function(score) {
 	console.log("Added Score: "+ score.stat );
 	if(score.gameType && score.statname && score.stat){
@@ -46,6 +50,7 @@ GameRoomSchema.path('Score').validate(function(UserID) {
 	}
     return false;
 }, 'Invalid Score');
+*/
 
 /**
  * Statics
