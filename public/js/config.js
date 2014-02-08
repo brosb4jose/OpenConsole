@@ -8,20 +8,26 @@ angular.module('mean').config(['$routeProvider',
             templateUrl: 'views/index.html',
             controller: 'IndexController'
         }).
-		when('/gR/:number', {
+		when('/gR/:roomID', {
             templateUrl: 'views/controller/registration.html',
             controller: 'RegistrationController'
         }).
-        when('/gR/:number/tube', {
+        when('/gR/:roomID/tube', {
             templateUrl: 'views/tube/gameList.html',
             controller: 'GameListController'
         }).
-        when('/gR/:number/player/:playerID', {
+        when('/gR/:roomID/player/:playerID', {
             templateUrl: 'views/controller/vote.html',
             controller: 'VoteController'
         }).
-        //  /gR/:number/game/:gameID/tube
-        //  /gR/:number/game/:gameID/player/:playerID"
+        when('/gR/:roomID/game/:gameID/tube', {
+            templateUrl: 'views/controller/game.html',
+            controller: 'GameController'
+        }).
+        when('/gR/:roomID/game/:gameID/player/:playerID', {
+            templateUrl: 'views/controller/pad.html',
+            controller: 'PadController'
+        }).
         otherwise({
             redirectTo: '/'
         });

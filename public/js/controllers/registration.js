@@ -1,10 +1,12 @@
 'use strict';
 
-angular.module('mean.system').controller('RegistrationController', ['$scope', '$socket', '$routeParams','$location','Global', function ($scope, $socket, $location, $routeParams, Global) {
+angular.module('mean.system').controller('RegistrationController', ['$scope', '$socket', '$routeParams','$route','$location','Global', function ($scope, $socket, $location, $route, $routeParams, Global) {
     $scope.global = Global;
 
+
+    console.log($routeParams)
     // Pull GameRoom from route
-    $scope.global.room = $routeParams.room
+    //$scope.global.room = $routeParams.roomID
 
 	// Socket Responses
     $socket.on('getID', function(data){
@@ -12,11 +14,12 @@ angular.module('mean.system').controller('RegistrationController', ['$scope', '$
     	console.log('Player name: ', data)
 
     	console.log('Routing to new Controller')
-    	$location.path('/gR/' + $scope.global.room + '/player/' + $scope.playerName)
+        console.log('/gR/' + $scope.global.room + '/player/' + $scope.playerName)
+    	//$location.path('/gR/' + $scope.global.room + '/player/' + $scope.playerName)
     })
 
     $scope.register = function(){
-    	nameInput = $(#name).value()
+    	var nameInput = $scope.name
     	$socket.emit('register', {name: nameInput})
     }
 }]);

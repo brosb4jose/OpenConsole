@@ -16,15 +16,15 @@ var ScoreSchema = new Schema({
         default: Date.now
     },
     GameID: {
-        type: Number
+        type: String
     },
 	UserID: {
-		type: Number
+		type: String
 	},
 	Score: {
 		gameType: String, 
 		statname: String, 
-		stat: Number
+		value: Number
 	}
 });
 

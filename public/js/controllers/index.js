@@ -5,8 +5,8 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$socket'
 
  	// Socket Responses
     $socket.on('getRoom', function(data){
-    	$scope.global.room = data.room
-    	$location.path('/gR/' + data.room)
+    	$scope.global.room = data.roomID
+    	$location.path('/gR/' + data.roomID)
     })
 
     // Socket Commands
