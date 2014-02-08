@@ -4,7 +4,11 @@
 angular.module('mean').config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
-        when('/gR/:number/tube', {
+        when('/', {
+            templateUrl: 'views/index.html',
+            controller: 'IndexController'
+        }).
+		when('/gR/:number/tube', {
             templateUrl: 'views/tube/gameList.html',
             controller: 'GameListController'
         }).

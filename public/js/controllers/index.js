@@ -14,6 +14,6 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$socket'
     }
 
     $scope.setName = function(){
-    	$socket.emit('setName', {name: "Jose Contreras"})
+    	$socket.emit('setName', {name: 'Jose Contreras'})
     }
 }]);
