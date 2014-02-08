@@ -86,6 +86,12 @@ io.sockets.on('connection', function(socket) {
     socket.on('test', function(data){
         console.log(data);
     })
+
+    socket.on('setName', function(data){
+        console.log(data)
+        // Save Name, create player, send ID from callback
+        socket.emit('getID', data.name)
+    })
 });
 
 
